@@ -1,6 +1,6 @@
 import React from "react";
 
-function GuessInput() {
+function GuessInput({guesses, setGuesses}) {
   const [input, setInput] = React.useState('')
 
   return (
@@ -9,6 +9,8 @@ function GuessInput() {
       if (input.length !== 5) {
         alert('Your guess must have exactly 5 letters')
       } else if (input.length === 5){
+        const nextGuesses = [...guesses, input]
+        setGuesses(nextGuesses)
         console.log('GUESS:', input)
       }
     }}>
